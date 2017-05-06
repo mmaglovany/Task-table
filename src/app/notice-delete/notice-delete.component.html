@@ -1,0 +1,13 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{errorMessage}}
+</div>
+
+<p> Will you delete this notice ? </p>
+<p>Name: {{_currentNotice?.name}}</p>
+<p>Status: {{_currentNotice?.status}}</p>
+<p>Priority: {{_currentNotice?.priority}}</p>
+
+<button md-icon-button (click)="goBack()" mdTooltip="cancel" mdTooltipPosition="above"><md-icon>cancel</md-icon></button>
+<button md-icon-button (click)="deleteNotice()" mdTooltip="delete" mdTooltipPosition="above" color="accent" ><md-icon>delete</md-icon></button>
+<!--<button class="btn btn-default" (click)="goBack()">Cancel</button>
+<button class="btn btn-primary" (click)="deleteNotice()">Delete</button>-->

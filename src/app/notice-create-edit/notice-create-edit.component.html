@@ -1,0 +1,44 @@
+<div class="container" *ngIf="noticeForm">
+  <form [formGroup]="noticeForm" (ngSubmit)="onSubmit(noticeForm)" >
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" type="text" class="form-control" formControlName="name" />
+      <div *ngIf="checkError('name', 'required')" class="alert alert-danger">
+        required the field!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <!--<select id="status" (change)="parseSatus($event.target.value)">
+                <option *ngFor="let key of keys" [value]="key" [label]="status[key]"></option>
+            </select>-->
+      <input id="status" type="text" class="form-contol" formControlName="status" />
+      <div *ngIf="checkError('status', 'required')" class="alert alert-danger">
+        required the field!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="priority">Priority</label>
+          <!--<select id="priority" (change)="parsePriority($event.target.value)">
+                <option *ngFor="let order of ranges" [value]="order" [label]="priorities[order]"></option>
+            </select>-->
+      <input id="priority" type="number" class="form-contol" formControlName="priority" />
+     <div *ngIf="checkError('priority', 'required')" class="alert alert-danger">
+        required the field!
+      </div>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{errorMessage}}
+    </div>
+
+    
+
+    <button md-icon-button (click)="goBack()" mdTooltip="cancel" mdTooltipPosition="above" color="warn"><md-icon>cancel</md-icon></button>
+    <button md-icon-button value="Save"  [disabled]="noticeForm.invalid" mdTooltip="save" mdTooltipPosition="above" color="primary"><md-icon>save</md-icon></button>
+    <!--<input type="button" class="btn btn-default" (click)="goBack()" value="Cancel" />
+    <input type="submit" class="btn btn-primary" value="Save"  [disabled]="noticeForm.invalid"/>-->
+    <!---->
+  </form>
+</div>
