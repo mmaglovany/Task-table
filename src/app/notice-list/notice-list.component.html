@@ -1,66 +1,21 @@
 <md-toolbar color="primary">
   To do list
 </md-toolbar>
-<div>
-  <button md-icon-button (click)="createNotice()" mdTooltip="create a new notice" mdTooltipPosition="above" color="Green"><md-icon>add</md-icon></button>
-
-  <button md-icon-button (click)="refresh()" mdTooltip="refresh data from DB" mdTooltipPosition="above"><md-icon>refresh</md-icon></button>
-
-</div>
-<div *ngIf="errorMessage" class="alert alert-danger">
-  {{errorMessage}}
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th style="width: 30%">Name</th>
-      <th style="width: 15%"> Status
-        <!--<mfDefaultSorter by="status">Status</mfDefaultSorter>-->
-      </th>
-      <th style="width: 15%"> Priority
-        <!--<mfDefaultSorter by="priority">Priority</mfDefaultSorter>-->
-      </th>
-      <th style="width: 40%"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let notice of notices">
-      <!--<td>
-        {{notice.name}}
-      </td>
-      <td>
-        {{notice.status}}
-      </td>
-      <td>
-        {{notice.priority}}
-      </td>-->
-      <td>
-        <!--<button md-icon-button (click)="editNotice()" mdTooltip="edit" mdTooltipPosition="above" color="theme"><md-icon>edit</md-icon></button>
-        <button md-icon-button (click)="deleteNotice()" mdTooltip="delete" mdTooltipPosition="above" color="accent"><md-icon>delete</md-icon></button>-->
-
-      </td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="4">
-        <!--<mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
-      </td>
-    </tr>
-  </tfoot>
-</table>  
-<button md-icon-button (click)="editNotice()" mdTooltip="edit" mdTooltipPosition="above" color="theme"><md-icon>edit</md-icon></button>
-        <button md-icon-button (click)="deleteNotice()" mdTooltip="delete" mdTooltipPosition="above" color="accent"><md-icon>delete</md-icon></button>
+ 
+<button md-icon-button (click)="createNotice()" mdTooltip="create a new notice" mdTooltipPosition="above" color="Green"><md-icon>add</md-icon></button>
+<button md-icon-button (click)="refresh()" mdTooltip="refresh data from DB" mdTooltipPosition="above"><md-icon>refresh</md-icon></button>
+<button md-icon-button (click)="editNotice(); disableButton = false;" [disabled]="disableButton" mdTooltip="edit" mdTooltipPosition="above" color="theme"><md-icon>edit</md-icon></button>
+<button md-icon-button (click)="deleteNotice(); disableButton = false;" [disabled]="disableButton" mdTooltip="delete" mdTooltipPosition="above" color="accent"><md-icon>delete</md-icon></button>
 <ng2-md-datatable selectable>
   <ng2-md-datatable-header>
-    <ng2-md-datatable-column sortableValue="id" numeric>Id</ng2-md-datatable-column>
+    <!--<ng2-md-datatable-column sortableValue="id" numeric>Id</ng2-md-datatable-column>-->
     <ng2-md-datatable-column sortableValue="name">Name</ng2-md-datatable-column>
     <ng2-md-datatable-column sortableValue="status">Status</ng2-md-datatable-column>
     <ng2-md-datatable-column sortableValue="priority">Priority</ng2-md-datatable-column>
   </ng2-md-datatable-header>
   <tbody>
-    <ng2-md-datatable-row *ngFor="let notice of notices " [selectableValue]="notice.id" (click)="setCurrentNotice(notice);">
-      <td class="numeric">{{ notice.id }}</td>
+    <ng2-md-datatable-row *ngFor="let notice of notices | orderBy : ['priority'] " [selectableValue]="notice.id" (click)="setCurrentNotice(notice); disableButton = !disableButton;">
+      <!--<td class="numeric">{{ notice.id }}</td>-->
       <td>{{ notice.name }}</td>
       <td [ngSwitch]="notice.status" (click)="openStatusSnack()">
       <md-icon *ngSwitchCase="clear" class="material-icons canceled"  mdTooltip="canceled" mdTooltipPosition="above">{{ notice.status }}</md-icon>

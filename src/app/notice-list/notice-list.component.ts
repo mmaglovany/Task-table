@@ -16,6 +16,7 @@ import { SharedService } from '../shared-service.service';
 })
 export class NoticeListComponent implements OnInit {
   private snackBarRef: MdSnackBarRef<any>;
+  private disableButton: boolean;
   notices: Notice[];
   note: Notice;
   errorMessage: string;
@@ -27,7 +28,7 @@ export class NoticeListComponent implements OnInit {
     private _snackBar: MdSnackBar,
     private _sharedService: SharedService,
     public statusSnack: MdSnackBar,
-    public prioritySnack: MdSnackBar,
+    public prioritySnack: MdSnackBar
   ) {
     this._sharedService.caseNumber$.subscribe(
       data => {
@@ -35,13 +36,12 @@ export class NoticeListComponent implements OnInit {
         this.note = data;
         if (this.note) {
           this.priority = data.priority;
-          //this.updateNewData(this.note);
         }
-      }); 
+      });
   }
 
   ngOnInit() {
-    //this.getNotices();
+    this.disableButton = true;
     this.refresh();
   }
 
