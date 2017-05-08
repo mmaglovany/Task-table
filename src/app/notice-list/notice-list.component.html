@@ -3,36 +3,42 @@
 </md-toolbar>
  
 <button md-icon-button (click)="createNotice()" mdTooltip="create a new notice" mdTooltipPosition="above" color="Green"><md-icon>add</md-icon></button>
-<button md-icon-button (click)="refresh()" mdTooltip="refresh data from DB" mdTooltipPosition="above"><md-icon>refresh</md-icon></button>
+<!--<button md-icon-button (click)="getNotices()" mdTooltip="refresh data from DB" mdTooltipPosition="above"><md-icon>refresh</md-icon></button>-->
 <button md-icon-button (click)="editNotice(); disableButton = false;" [disabled]="disableButton" mdTooltip="edit" mdTooltipPosition="above" color="theme"><md-icon>edit</md-icon></button>
 <button md-icon-button (click)="deleteNotice(); disableButton = false;" [disabled]="disableButton" mdTooltip="delete" mdTooltipPosition="above" color="accent"><md-icon>delete</md-icon></button>
-<ng2-md-datatable selectable>
+<button md-icon-button (click)="saveNotices(); disableSave = true;" [disabled]="disableSave" mdTooltip="save" mdTooltipPosition="above" color="primary"><md-icon>save</md-icon></button>
+<ng2-md-datatable selectable >
   <ng2-md-datatable-header>
     <!--<ng2-md-datatable-column sortableValue="id" numeric>Id</ng2-md-datatable-column>-->
     <ng2-md-datatable-column sortableValue="name">Name</ng2-md-datatable-column>
     <ng2-md-datatable-column sortableValue="status">Status</ng2-md-datatable-column>
     <ng2-md-datatable-column sortableValue="priority">Priority</ng2-md-datatable-column>
   </ng2-md-datatable-header>
-  <tbody>
-    <ng2-md-datatable-row *ngFor="let notice of notices | orderBy : ['priority'] " [selectableValue]="notice.id" (click)="setCurrentNotice(notice); disableButton = !disableButton;">
+  <tbody  disabled="disabled">
+    <ng2-md-datatable-row *ngFor="let notice of notices  " [selectableValue]="notice.id" (click)="setCurrentNotice(notice); disableButton = !disableButton;">
       <!--<td class="numeric">{{ notice.id }}</td>-->
       <td>{{ notice.name }}</td>
-      <td [ngSwitch]="notice.status" (click)="openStatusSnack()">
-      <md-icon *ngSwitchCase="clear" class="material-icons canceled"  mdTooltip="canceled" mdTooltipPosition="above">{{ notice.status }}</md-icon>
-      <md-icon *ngSwitchCase="flight" class="material-icons pending"   mdTooltip="pending" mdTooltipPosition="above">{{ notice.status }}</md-icon>
-      <md-icon *ngSwitchCase="star" class="material-icons done"   mdTooltip="Done" mdTooltipPosition="above">{{ notice.status }}</md-icon>
-      <md-icon *ngSwitchDefault  mdTooltip="pending" mdTooltipPosition="above">{{ notice.status }}</md-icon>
+      <td [ngSwitch]="notice.status" (click)="openStatusChoise(notice);" > 
+      <md-icon *ngSwitchCase="Canceled" class="material-icons canceled"  mdTooltip="canceled" mdTooltipPosition="above">{{ convertStatusToIcon(notice.status)  }}</md-icon>
+      <md-icon *ngSwitchCase="Pendind" class="material-icons pending"   mdTooltip="pending" mdTooltipPosition="above">{{ convertStatusToIcon(notice.status) }}</md-icon>
+      <md-icon *ngSwitchCase="Done" class="material-icons done"   mdTooltip="done" mdTooltipPosition="above">{{ convertStatusToIcon(notice.status) }}</md-icon>
+      <md-icon *ngSwitchDefault  mdTooltip="pending" mdTooltipPosition="above">{{ convertStatusToIcon(notice.status) }}</md-icon>
         </td>
-      <td (click)="openPrioritySnack(notice); ">
+      <!--<td (click)="openPrioritySnack(notice); " >-->
+        <td (click)="startChangePriority(notice); " >
+          <div *ngIf="!notice.showpriority"  >
+        <button     (blur)="saveChangePriority(notice)"     md-icon-button (click)="changePriority(-1, notice)" mdTooltip="Reduce priority" mdTooltipPosition="above" ><md-icon class="material-icons down">remove</md-icon></button>
         <!--<div *ngIf="showPriority">
-          {{ notice.priority }}
+          {{ notice.priority  }}
         </div>
         <div *ngIf="!showPriority">
           {{ notice.showpriority }}
         </div>-->
-        {{ (notice.showpriority)? notice.priority : priority}}
-        <!--{{ notice.showpriority }}-->
-      
+        <!--{{ (notice.showpriority)? notice.priority : priority}}-->
+        {{ notice.priority  }}
+      <button (blur)="saveChangePriority(notice)"  md-icon-button (click)="changePriority(1, notice)" mdTooltip="Add priority" mdTooltipPosition="above"><md-icon class="material-icons up">add</md-icon></button>
+       </div>
+       <div *ngIf="notice.showpriority">{{ notice.priority  }}</div>
         </td>
     </ng2-md-datatable-row>
   </tbody>

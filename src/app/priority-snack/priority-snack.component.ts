@@ -24,9 +24,13 @@ export class PrioritySnackComponent implements OnInit {
 
   public changePriority(item: number) {
     if (this.priority >= 0) {
-      this.notice.priority = +this.notice.priority + item; 
+      this.notice.priority = +this.notice.priority + item;
       this._sharedService.publishData(this.notice);
     }
+  }
+
+  public refresh () {
+    this._sharedService.refresh();
   }
 
 }

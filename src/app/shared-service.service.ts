@@ -12,12 +12,19 @@ export class SharedService {
   // Observable Notice streams
   caseNumber$ = this.caseNumber.asObservable();
 
+  private newData = new Subject<string>(); 
+
+  // Observable Notice streams
+  newData$ = this.caseNumber.asObservable();
+
     // Service message commands
   publishData(data: Notice) {
     this.caseNumber.next(data);
   }
- 
-
+  
+  refresh() {
+    this.newData.next('Data was update');
+  }
 
     // publishData(data: string) {
     //     console.log('Inside publish data: ' + data);

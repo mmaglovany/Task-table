@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdDialogRef } from '@angular/material';
 import {DataTableModule} from 'angular2-datatable';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MdDataTableModule } from 'ng2-md-datatable';
@@ -17,6 +17,7 @@ import { routes } from './app.routes';
 import { StatusSnackComponent } from './status-snack/status-snack.component';
 import { PrioritySnackComponent } from './priority-snack/priority-snack.component';
 import { SharedService } from './shared-service.service';
+import { StatusDialogService } from './shared/services/statusDialogService';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SharedService } from './shared-service.service';
   ],
   providers: [
     NoticeService,
-    SharedService
+    SharedService,
+   StatusDialogService,
     ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core'; 
+import { MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-status-snack',
@@ -6,10 +7,15 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./status-snack.component.css']
 })
 export class StatusSnackComponent implements OnInit {
-
-  constructor() { }
-
+  public title: string;
+  public message: string;
+  public status: number;
+  constructor(public dialogRef: MdDialogRef<StatusSnackComponent>) { }
+  
   ngOnInit() {
   }
 
+  public setStatus(numberStatus) {
+    this.status = numberStatus;
+  }
 }

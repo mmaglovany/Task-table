@@ -2,3 +2,5 @@
 .material-icons.pending { color: darkorange; }
 .material-icons.canceled { color: red; }
 .material-icons.done { color: darkgreen; }
+.material-icons.down { color: red; }
+.material-icons.up { color: darkgreen; }
