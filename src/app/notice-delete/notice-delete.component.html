@@ -1,13 +1,22 @@
 <div *ngIf="errorMessage" class="alert alert-danger">
   {{errorMessage}}
 </div>
-
-<p> Will you delete this notice ? </p>
-<p>Name: {{_currentNotice?.name}}</p>
-<p>Status: {{_currentNotice?.status}}</p>
-<p>Priority: {{_currentNotice?.priority}}</p>
-
+<p> Will you to delete this notice ? </p>
+<div>
+<md-input-container>
+    <input mdInput placeholder="Text a notice" name="name" value={{_currentNotice?.name}} disabled>
+ </md-input-container>
+</div>
+<div>
+ <md-input-container>
+    <input mdInput placeholder="Status" name="status" value={{_currentNotice?.status}} disabled>
+ </md-input-container>
+ </div>
+<div>
+ <md-input-container>
+    <input mdInput placeholder="Priority" name="priority" value={{_currentNotice?.priority}} disabled>
+ </md-input-container>
+ </div>
+<div>
 <button md-icon-button (click)="goBack()" mdTooltip="cancel" mdTooltipPosition="above"><md-icon>cancel</md-icon></button>
 <button md-icon-button (click)="deleteNotice()" mdTooltip="delete" mdTooltipPosition="above" color="accent" ><md-icon>delete</md-icon></button>
-<!--<button class="btn btn-default" (click)="goBack()">Cancel</button>
-<button class="btn btn-primary" (click)="deleteNotice()">Delete</button>-->

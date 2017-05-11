@@ -1,8 +1,8 @@
 import { Observable, Subject } from 'rxjs/Rx';
 import { StatusSnackComponent } from '../../status-snack/status-snack.component';
-import { MdDialogRef, MdDialog, MdDialogConfig } from '@angular/material';
+import { MdDialogRef, MdDialog } from '@angular/material';
 import { Injectable } from '@angular/core';
-import { Status } from '../status';
+import { Status } from '../index';
 
 
 @Injectable()
@@ -21,10 +21,6 @@ export class StatusDialogService {
 
         dialogRef.componentInstance.title = title;
         dialogRef.componentInstance.message = message;
-        //this.newStatus.next(dialogRef.componentInstance.status);
-        
         return dialogRef.afterClosed();
-         
-        //return this.newStatus$;
     }
 }

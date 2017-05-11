@@ -4,20 +4,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule, MdDialogRef } from '@angular/material';
-import {DataTableModule} from 'angular2-datatable';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DataTableModule } from 'angular2-datatable';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdDataTableModule } from 'ng2-md-datatable';
+import { Md2DataTable, Md2Module } from 'md2';
 
 import { AppComponent } from './app.component';
 import { NoticeCreateEditComponent } from './notice-create-edit/notice-create-edit.component';
 import { NoticeDeleteComponent } from './notice-delete/notice-delete.component';
 import { NoticeListComponent } from './notice-list/notice-list.component';
-import { NoticeService } from './shared/index';
-import { routes } from './app.routes';
 import { StatusSnackComponent } from './status-snack/status-snack.component';
-import { PrioritySnackComponent } from './priority-snack/priority-snack.component';
-import { SharedService } from './shared-service.service';
-import { StatusDialogService } from './shared/services/statusDialogService';
+import { PanelComponent } from './panel/panel.component';
+import { NoticeService, StatusPipe, NamePipe, StatusDialogService, NotificationDbService, SharedService } from './shared';
+import { routes } from './app.routes'; 
 
 @NgModule({
   declarations: [
@@ -26,11 +25,12 @@ import { StatusDialogService } from './shared/services/statusDialogService';
     NoticeDeleteComponent,
     NoticeListComponent,
     StatusSnackComponent,
-    PrioritySnackComponent
+    StatusPipe,
+    NamePipe,
+    PanelComponent
   ],
   entryComponents: [
     StatusSnackComponent,
-    PrioritySnackComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +39,7 @@ import { StatusDialogService } from './shared/services/statusDialogService';
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     MaterialModule.forRoot(),
+    Md2Module.forRoot(),
     DataTableModule,
     BrowserAnimationsModule,
     MdDataTableModule
@@ -49,8 +50,11 @@ import { StatusDialogService } from './shared/services/statusDialogService';
   providers: [
     NoticeService,
     SharedService,
-   StatusDialogService,
-    ],
+    StatusDialogService,
+    NotificationDbService,
+    Md2DataTable,
+    SharedService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,22 +1,6 @@
-<!--<button md-icon-button (click)="refresh()" mdTooltip="Canceled" mdTooltipPosition="above" ><md-icon class="material-icons canceled">clear</md-icon></button>
-<button md-icon-button (click)="refresh()" mdTooltip="Pending" mdTooltipPosition="above"><md-icon class="material-icons pending">flight</md-icon></button>
-<button md-icon-button (click)="refresh()" mdTooltip="Done" mdTooltipPosition="above" ><md-icon class="material-icons done">star borber</md-icon></button>-->
-
-
-<!--<h1 md-dialog-title class="primary-color">hey title</h1>
-    <md-dialog-content class="accent-color">
-      hey this is the content of the dialog
-    </md-dialog-content>
-    <md-dialog-actions>
-      <button md-raised-button color="primary" md-dialog-close>
-        close button
-      </button>  
-    </md-dialog-actions>-->
-
 <p>{{ title }}</p>
 <p>{{ message }}</p>
-<button md-icon-button (click)="setStatus(1); dialogRef.close(1); " mdTooltip="Canceled" mdTooltipPosition="above" ><md-icon class="material-icons canceled">clear</md-icon></button>
-<button md-icon-button (click)="setStatus(2); dialogRef.close(2); " mdTooltip="Pending" mdTooltipPosition="above"><md-icon class="material-icons pending">flight</md-icon></button>
-<button md-icon-button (click)="setStatus(3); dialogRef.close(3); " mdTooltip="Done" mdTooltipPosition="above" ><md-icon class="material-icons done">star</md-icon></button>
-<!--<button type="button" md-raised-button (click)="dialogRef.close(true)">OK</button>-->
+<button md-icon-button (click)="setStatus(1); dialogRef.close(1); " mdTooltip="Canceled" mdTooltipPosition="above" ><md-icon class="material-icons canceled">{{icon[1]}}</md-icon></button>
+<button md-icon-button (click)="setStatus(2); dialogRef.close(2); " mdTooltip="Pending" mdTooltipPosition="above"><md-icon class="material-icons pending">{{icon[2]}}</md-icon></button>
+<button md-icon-button (click)="setStatus(3); dialogRef.close(3); " mdTooltip="Done" mdTooltipPosition="above" ><md-icon class="material-icons done">{{icon[3]}}</md-icon></button>
 <button type="button" md-button (click)="dialogRef.close()">Cancel</button>

@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Notice, NoticeService } from '../shared/index';
-//import { FormGroup } from '@angular/forms';
+import { Notice, NoticeService, NotificationDbService } from '../shared';
+import { MdSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-notice-delete',
-  templateUrl: './notice-delete.component.html',
-  styleUrls: ['./notice-delete.component.css']
+  templateUrl: './notice-delete.component.html'
 })
-export class NoticeDeleteComponent implements OnInit {  
-    private _currentNotice: Notice;
-    private _errorMessage: string;
-    //private noticeForm: FormGroup;
+export class NoticeDeleteComponent implements OnInit {
+  private _currentNotice: Notice;
+  private _errorMessage: string;
 
-    constructor(
+  constructor(
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    private _service: NoticeService
+    private _service: NoticeService,
+    private _snackBar: MdSnackBar,
+    private _notificationDb: NotificationDbService
   ) { }
 
   ngOnInit() {
@@ -25,16 +25,10 @@ export class NoticeDeleteComponent implements OnInit {
 
   private getNoticeFromRoute() {
     this._activatedRoute.params.forEach((params: Params) => {
-      let id = params['id'];
-
-      if (id) {
-        this._service.getNotice(id).subscribe(
+      if (params['id']) {
+        this._service.getNotice(params['id']).subscribe(
           notice => {
             this._currentNotice = notice;
-            console.log('del this._currentNotice.priority' + this._currentNotice.priority);
-            console.log('del this._currentNotice.showpriority' + this._currentNotice.showpriority);
-            console.log('del this._currentNotice.status' + this._currentNotice.status);
-           // this.noticeForm.patchValue(this._currentNotice);
           },
           error => this._errorMessage = error
         );
@@ -47,14 +41,16 @@ export class NoticeDeleteComponent implements OnInit {
   private deleteNotice() {
     this._service.deleteNotice(this._currentNotice)
       .subscribe(
-        notice => this._currentNotice = notice,
-        error => this._errorMessage = error
+      () => {
+        this._service.getNotices();
+        this._notificationDb.callBar('deleting the data was successfuly!');
+        this._router.navigate(['/notices']);
+      },
+      error => this._errorMessage = error
       );
-      this._router.navigate(['/notices']);
   }
 
-   private goBack() {
+  private goBack() {
     this._router.navigate(['/notices']);
   }
-
 }

@@ -1,0 +1,29 @@
+<md-sidenav-container>
+    <md-sidenav #sidenav mode="side">
+        <md-toolbar>
+            <i class="material-icons demo-toolbar-icon">menu</i>
+            <button md-button (click)="goGeneralPage()">
+                <span>Go to the general page</span>
+                </button>
+        </md-toolbar>
+        <md-toolbar>
+            <i class="material-icons demo-toolbar-icon">code</i>
+            <button md-button (click)="goAddPage()">
+                <span>Add new a item</span>
+                </button>
+            <span class="demo-fill-remaining"></span>
+        </md-toolbar>
+        <md-toolbar>
+            <i class="material-icons demo-toolbar-icon">refresh</i>
+            <button md-button (click)="goGeneralPage()">
+                <span>Refresh the page</span>
+                </button>
+        </md-toolbar>
+    </md-sidenav>
+    <md-toolbar color="primary">
+        <button md-button (click)="sidenav.toggle()" mdTooltip="Click for show or hide menu" mdTooltipPosition="above">
+      <md-icon>menu</md-icon>
+    </button>
+        <span>Table for tasks</span>
+    </md-toolbar>
+</md-sidenav-container>

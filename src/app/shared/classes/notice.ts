@@ -1,5 +1,4 @@
-import { Status } from './status';
-//import { Priority } from './priority';
+import { Status } from './status'; 
 
 export class Notice {
 
