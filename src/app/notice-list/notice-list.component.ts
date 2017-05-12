@@ -6,7 +6,6 @@ import { DataTableModule } from 'angular2-datatable';
 import { MdSnackBar } from '@angular/material';
 import { Md2DataTable } from 'md2';
 
-//import { StatusSnackComponent } from '../status-snack/status-snack.component';
 import { StatusDialogService, SharedService, Status, Icons, NotificationDbService } from '../shared';
 
 @Component({
@@ -27,7 +26,6 @@ export class NoticeListComponent implements OnInit {
   private _showPriority = true;
   private _priority: number;
   private _search: string = null;
-  //private statusSnackComponent: StatusSnackComponent;
 
   constructor(
     private _service: NoticeService,
@@ -80,7 +78,7 @@ export class NoticeListComponent implements OnInit {
     if (this._isBlur && this._idItemSelected !== notice.id && this._different !== 0) {
       this._note.showpriority = true;
       this.updateNewData(this._note, 'priority field changed and saved successfuly!');
-      this._idItemSelected = notice.id; 
+      this._idItemSelected = notice.id;
       this._isBlur = true;
       this._different = 0;
     } else {

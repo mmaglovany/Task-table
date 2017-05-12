@@ -62,7 +62,7 @@ export class NoticeCreateEditComponent implements OnInit {
   }
 
   private getNoticeFromRoute() {
-    this.activatedRoute.params.forEach((params: Params) => { 
+    this.activatedRoute.params.forEach((params: Params) => {
 
       if (params['id']) {
         this.service.getNotice(params['id']).subscribe(

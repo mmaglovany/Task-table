@@ -1,6 +1,26 @@
-# TestList
-
+## TestList 
+ 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
+
+Other technologies used:
+
+* [**A**ngular 2](https://angular.io) (TypeScript)
+* [**A**ngular CLI](https://cli.angular.io/) (TypeScript)
+* [**N**ode.js](https://nodejs.org)
+* [**M**ongoDB](http://www.mongodb.com)
+* [**M**aterial Design](https://material.io/)
+* [**R**xJS](http://reactivex.io/rxjs/)
+* [**W**ebPack](https://webpack.github.io/)
+* [**D**eployd](http://docs.deployd.com/docs/getting-started/your-first-api.html)
+
+## Run
+You need to have **MongoDB** and **Node.js** installed to run this project.
+1. `npm install dpd -g` (backend)
+2. Do it as on Preview
+![Preview](2.png "Preview")
+3. `npm install`
+4. `ng serve`
+5. Go to [localhost:4200](http://localhost:4200). 
 
 ## Development server
 
@@ -10,10 +30,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running end-to-end tests
+## Preview
+![Preview](https://cloud.githubusercontent.com/assets/11519562/18688885/ff244c80-7f8e-11e6-8348-e2e759c72231.gif "Preview")
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+The server will auto restart on changes.
 
 ## Further help
 

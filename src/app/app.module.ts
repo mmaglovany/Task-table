@@ -16,7 +16,7 @@ import { NoticeListComponent } from './notice-list/notice-list.component';
 import { StatusSnackComponent } from './status-snack/status-snack.component';
 import { PanelComponent } from './panel/panel.component';
 import { NoticeService, StatusPipe, NamePipe, StatusDialogService, NotificationDbService, SharedService } from './shared';
-import { routes } from './app.routes'; 
+import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
