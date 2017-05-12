@@ -135,4 +135,10 @@ export class NoticeListComponent implements OnInit {
     const objValues = Object.keys(Status).map(k => Status[k]);
     return objValues.filter(v => typeof v === 'string') as string[];
   }
+
+  private getNameForToolTip() {
+    const objValues = Object.keys(Status).map(k => Status[k]);
+    return objValues.filter(v => typeof v === 'string') as string[];
+  }
+
 }

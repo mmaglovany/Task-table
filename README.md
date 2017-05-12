@@ -31,7 +31,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## Preview
-![Preview](https://cloud.githubusercontent.com/assets/11519562/18688885/ff244c80-7f8e-11e6-8348-e2e759c72231.gif "Preview")
+![material 2 table angular 2](https://cloud.githubusercontent.com/assets/11519562/26009998/d49da074-3753-11e7-8b44-ec03ca7d3389.gif)
 
 The server will auto restart on changes.
 
