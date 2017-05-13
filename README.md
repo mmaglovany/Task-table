@@ -16,7 +16,7 @@ Other technologies used:
 ## Run
 You need to have **MongoDB** and **Node.js** installed to run this project.
 1. `npm install dpd -g` (backend)
-2. Do it as on Preview
+2. Configure dpd as follows:
 ![Preview](2.png "Preview")
 3. `npm install`
 4. `ng serve`
@@ -31,7 +31,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## Preview
-![material 2 table angular 2](https://cloud.githubusercontent.com/assets/11519562/26009998/d49da074-3753-11e7-8b44-ec03ca7d3389.gif)
+![angular 2 material 2 table](https://cloud.githubusercontent.com/assets/11519562/26024752/26fe335a-37e1-11e7-9e05-3ab157c06c96.gif)
 
 The server will auto restart on changes.
 

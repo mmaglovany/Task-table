@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 
 @Pipe({ name: 'statusPipe' })
 export class StatusPipe implements PipeTransform {
-    transform(array: any[], query: string): any {
+    transform(array: string[], query: string): string[] {
         if (query) {
             query = query.toLowerCase();
             return array.filter((value: any, index: number, arr: any) =>

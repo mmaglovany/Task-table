@@ -1,6 +1,6 @@
 <p>{{ title }}</p>
 <p>{{ message }}</p>
-<button md-icon-button (click)="setStatus(1); dialogRef.close(1); " mdTooltip="Canceled" mdTooltipPosition="above" ><md-icon class="material-icons canceled">{{icon[1]}}</md-icon></button>
+<button md-icon-button (click)="setStatus(1); dialogRef.close(1); " mdTooltip="Canceled" mdTooltipPosition="above"><md-icon class="material-icons canceled">{{icon[1]}}</md-icon></button>
 <button md-icon-button (click)="setStatus(2); dialogRef.close(2); " mdTooltip="Pending" mdTooltipPosition="above"><md-icon class="material-icons pending">{{icon[2]}}</md-icon></button>
-<button md-icon-button (click)="setStatus(3); dialogRef.close(3); " mdTooltip="Done" mdTooltipPosition="above" ><md-icon class="material-icons done">{{icon[3]}}</md-icon></button>
+<button md-icon-button (click)="setStatus(3); dialogRef.close(3); " mdTooltip="Done" mdTooltipPosition="above"><md-icon class="material-icons done">{{icon[3]}}</md-icon></button>
 <button type="button" md-button (click)="dialogRef.close()">Cancel</button>

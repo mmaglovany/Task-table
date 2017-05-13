@@ -18,10 +18,10 @@ export class NoticeCreateEditComponent implements OnInit {
   private _signForForm: string;
 
   constructor(
-    private service: NoticeService,
-    private activatedRoute: ActivatedRoute,
-    private fb: FormBuilder,
-    private router: Router,
+    private _service: NoticeService,
+    private _activatedRoute: ActivatedRoute,
+    private _fb: FormBuilder,
+    private _router: Router,
     private _notificationDb: NotificationDbService
   ) { }
 
@@ -37,7 +37,7 @@ export class NoticeCreateEditComponent implements OnInit {
     this._currentNotice.showpriority = true;
 
     if (this._currentNotice.id) {
-      this.service.updateNotice(this._currentNotice)
+      this._service.updateNotice(this._currentNotice)
         .subscribe(
         () => {
           this._notificationDb.callBar('Editing and saving was successfuly!');
@@ -46,7 +46,7 @@ export class NoticeCreateEditComponent implements OnInit {
         error => this._errorMessage = error
         );
     } else {
-      this.service.addNotice(this._currentNotice)
+      this._service.addNotice(this._currentNotice)
         .subscribe(
         () => {
           this._notificationDb.callBar('saving the new data was successfuly!');
@@ -58,14 +58,14 @@ export class NoticeCreateEditComponent implements OnInit {
   }
 
   private goBack() {
-    this.router.navigate(['/notices']);
+    this._router.navigate(['/notices']);
   }
 
   private getNoticeFromRoute() {
-    this.activatedRoute.params.forEach((params: Params) => {
+    this._activatedRoute.params.forEach((params: Params) => {
 
       if (params['id']) {
-        this.service.getNotice(params['id']).subscribe(
+        this._service.getNotice(params['id']).subscribe(
           notice => {
             this._currentNotice = notice;
             this._noticeForm.patchValue(this._currentNotice);
@@ -82,7 +82,7 @@ export class NoticeCreateEditComponent implements OnInit {
   }
 
   private buildForm() {
-    this._noticeForm = this.fb.group({
+    this._noticeForm = this._fb.group({
       name: ['', Validators.required],
       status: ['', Validators.required],
       priority: ['', Validators.required],

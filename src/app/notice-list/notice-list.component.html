@@ -37,10 +37,10 @@
           <tr *ngFor="let notice of md2.data | namePipe : searchName" (click)="setCurrentNotice(notice); _disableButton=false;">
             <td>{{ notice.name }}</td>
             <td [ngSwitch]="notice.status" (click)="openStatusChoise(notice);">
-              <md-icon *ngSwitchCase="Canceled" class="material-icons canceled" mdTooltip="canceled" mdTooltipPosition="above" >{{ convertStatusToIcon(notice.status) }}</md-icon>
-              <md-icon *ngSwitchCase="Pendind" class="material-icons pending" mdTooltip="pending" mdTooltipPosition="above" >{{ convertStatusToIcon(notice.status) }}</md-icon>
-              <md-icon *ngSwitchCase="Done" class="material-icons done" mdTooltip="done" mdTooltipPosition="above" >{{ convertStatusToIcon(notice.status) }}</md-icon>
-              <md-icon *ngSwitchDefault mdTooltip="done" mdTooltipPosition="above"  >{{ convertStatusToIcon(notice.status) }}</md-icon>
+              <md-icon *ngSwitchCase="Canceled" class="material-icons canceled" mdTooltip="canceled" mdTooltipPosition="above">{{ convertStatusToIcon(notice.status) }}</md-icon>
+              <md-icon *ngSwitchCase="Pendind" class="material-icons pending" mdTooltip="pending" mdTooltipPosition="above">{{ convertStatusToIcon(notice.status) }}</md-icon>
+              <md-icon *ngSwitchCase="Done" class="material-icons done" mdTooltip="done" mdTooltipPosition="above">{{ convertStatusToIcon(notice.status) }}</md-icon>
+              <md-icon *ngSwitchDefault mdTooltip="done" mdTooltipPosition="above">{{ convertStatusToIcon(notice.status) }}</md-icon>
             </td>
             <td (click)="startChangePriority(notice); ">
               <div *ngIf="!notice.showpriority">

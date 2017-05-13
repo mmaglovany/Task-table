@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core'; 
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import { Status, Icons } from '../shared';
 
