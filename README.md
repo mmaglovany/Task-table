@@ -10,6 +10,7 @@ Other technologies used:
 * [**M**ongoDB](http://www.mongodb.com)
 * [**M**aterial Design](https://material.io/)
 * [**R**xJS](http://reactivex.io/rxjs/)
+* [**C**ucumber](https://cucumber.io/docs/reference/javascript)
 * [**W**ebPack](https://webpack.github.io/)
 * [**D**eployd](http://docs.deployd.com/docs/getting-started/your-first-api.html)
 
@@ -29,6 +30,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+## Tests BDD (Cucumber + Protractor)
+
+Run `ng e2e` to start BDD tests.
 
 ## Preview
 ![angular 2 material 2 table](https://cloud.githubusercontent.com/assets/11519562/26024752/26fe335a-37e1-11e7-9e05-3ab157c06c96.gif)
