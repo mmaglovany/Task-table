@@ -19,9 +19,12 @@ You need to have **MongoDB** and **Node.js** installed to run this project.
 1. `npm install dpd -g` (backend)
 2. Configure dpd as follows:
 ![Preview](2.png "Preview")
-3. `npm install`
-4. `ng serve`
-5. Go to [localhost:4200](http://localhost:4200). 
+3. `npm install -g @angular/cli`
+4. `ng new PROJECT`
+5. `cd PROJECT`
+6. `npm install`
+7. `ng serve`
+8. Go to [localhost:4200](http://localhost:4200). 
 
 ## Development server
 
